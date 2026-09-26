@@ -199,6 +199,13 @@
           "created": "2026-09-26 16:27:51",
           "name": "Micah",
           "color": "#34d399"
+        },
+        {
+          "cell": 61,
+          "hit": 1,
+          "created": "2026-09-26 16:27:58",
+          "name": "Jack",
+          "color": "#22d3ee"
         }
       ],
       "players": [
@@ -249,6 +256,12 @@
           "color": "#34d399",
           "shots": 5,
           "hits": 4
+        },
+        {
+          "name": "Jack",
+          "color": "#22d3ee",
+          "shots": 1,
+          "hits": 1
         }
       ]
     },
