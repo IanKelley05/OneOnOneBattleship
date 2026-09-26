@@ -129,6 +129,41 @@
           "created": "2026-09-26 16:18:12",
           "name": "Will",
           "color": "#facc15"
+        },
+        {
+          "cell": 39,
+          "hit": 0,
+          "created": "2026-09-26 16:27:29",
+          "name": "Josh",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 30,
+          "hit": 0,
+          "created": "2026-09-26 16:27:29",
+          "name": "Josh",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 37,
+          "hit": 1,
+          "created": "2026-09-26 16:27:30",
+          "name": "Josh",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 32,
+          "hit": 1,
+          "created": "2026-09-26 16:27:32",
+          "name": "Josh",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 24,
+          "hit": 1,
+          "created": "2026-09-26 16:27:33",
+          "name": "Josh",
+          "color": "#a3e635"
         }
       ],
       "players": [
@@ -167,6 +202,12 @@
           "color": "#facc15",
           "shots": 3,
           "hits": 1
+        },
+        {
+          "name": "Josh",
+          "color": "#a3e635",
+          "shots": 5,
+          "hits": 3
         }
       ]
     },
