@@ -87,6 +87,34 @@
           "created": "2026-09-26 16:42:03",
           "name": "Mau",
           "color": "#fb923c"
+        },
+        {
+          "cell": 35,
+          "hit": 1,
+          "created": "2026-09-26 16:43:14",
+          "name": "John",
+          "color": "#facc15"
+        },
+        {
+          "cell": 36,
+          "hit": 0,
+          "created": "2026-09-26 16:43:14",
+          "name": "John",
+          "color": "#facc15"
+        },
+        {
+          "cell": 34,
+          "hit": 0,
+          "created": "2026-09-26 16:43:15",
+          "name": "John",
+          "color": "#facc15"
+        },
+        {
+          "cell": 27,
+          "hit": 1,
+          "created": "2026-09-26 16:43:16",
+          "name": "John",
+          "color": "#facc15"
         }
       ],
       "players": [
@@ -107,6 +135,12 @@
           "color": "#fb923c",
           "shots": 4,
           "hits": 3
+        },
+        {
+          "name": "John",
+          "color": "#facc15",
+          "shots": 4,
+          "hits": 2
         }
       ],
       "sunk_ships": [
