@@ -5,304 +5,43 @@
       "name": "South",
       "shots": [
         {
-          "cell": 0,
-          "hit": 1,
-          "created": "2026-09-26 04:32:46",
-          "name": "Ian",
-          "color": "#14b8a6"
-        },
-        {
-          "cell": 1,
-          "hit": 1,
-          "created": "2026-09-26 04:32:47",
-          "name": "Ian",
-          "color": "#14b8a6"
-        },
-        {
-          "cell": 2,
-          "hit": 1,
-          "created": "2026-09-26 04:32:47",
-          "name": "Ian",
-          "color": "#14b8a6"
-        },
-        {
-          "cell": 3,
-          "hit": 1,
-          "created": "2026-09-26 16:17:27",
-          "name": "Mau",
-          "color": "#f87171"
-        },
-        {
-          "cell": 4,
-          "hit": 1,
-          "created": "2026-09-26 16:17:27",
-          "name": "Mau",
-          "color": "#f87171"
-        },
-        {
-          "cell": 35,
-          "hit": 1,
-          "created": "2026-09-26 16:17:29",
-          "name": "Mau",
-          "color": "#f87171"
-        },
-        {
-          "cell": 34,
+          "cell": 41,
           "hit": 0,
-          "created": "2026-09-26 16:17:36",
-          "name": "Aarav",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 36,
-          "hit": 0,
-          "created": "2026-09-26 16:17:36",
-          "name": "Aarav",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 27,
-          "hit": 1,
-          "created": "2026-09-26 16:17:37",
-          "name": "Aarav",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 43,
-          "hit": 1,
-          "created": "2026-09-26 16:17:47",
-          "name": "shane",
-          "color": "#a78b71"
-        },
-        {
-          "cell": 56,
-          "hit": 0,
-          "created": "2026-09-26 16:17:49",
-          "name": "shane",
-          "color": "#a78b71"
-        },
-        {
-          "cell": 63,
-          "hit": 0,
-          "created": "2026-09-26 16:17:50",
-          "name": "shane",
-          "color": "#a78b71"
-        },
-        {
-          "cell": 49,
-          "hit": 0,
-          "created": "2026-09-26 16:17:56",
-          "name": "John",
-          "color": "#f472b6"
-        },
-        {
-          "cell": 54,
-          "hit": 0,
-          "created": "2026-09-26 16:17:57",
-          "name": "John",
-          "color": "#f472b6"
-        },
-        {
-          "cell": 58,
-          "hit": 0,
-          "created": "2026-09-26 16:17:58",
-          "name": "John",
-          "color": "#f472b6"
-        },
-        {
-          "cell": 17,
-          "hit": 0,
-          "created": "2026-09-26 16:18:06",
-          "name": "Will",
-          "color": "#facc15"
-        },
-        {
-          "cell": 22,
-          "hit": 0,
-          "created": "2026-09-26 16:18:07",
-          "name": "Will",
-          "color": "#facc15"
-        },
-        {
-          "cell": 38,
-          "hit": 1,
-          "created": "2026-09-26 16:18:12",
-          "name": "Will",
-          "color": "#facc15"
-        },
-        {
-          "cell": 39,
-          "hit": 0,
-          "created": "2026-09-26 16:27:29",
-          "name": "Josh",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 30,
-          "hit": 0,
-          "created": "2026-09-26 16:27:29",
-          "name": "Josh",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 37,
-          "hit": 1,
-          "created": "2026-09-26 16:27:30",
-          "name": "Josh",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 32,
-          "hit": 1,
-          "created": "2026-09-26 16:27:32",
-          "name": "Josh",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 24,
-          "hit": 1,
-          "created": "2026-09-26 16:27:33",
-          "name": "Josh",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 40,
-          "hit": 1,
-          "created": "2026-09-26 16:27:43",
-          "name": "Micah",
-          "color": "#34d399"
-        },
-        {
-          "cell": 16,
-          "hit": 0,
-          "created": "2026-09-26 16:27:44",
-          "name": "Micah",
-          "color": "#34d399"
-        },
-        {
-          "cell": 48,
-          "hit": 1,
-          "created": "2026-09-26 16:27:45",
-          "name": "Micah",
-          "color": "#34d399"
-        },
-        {
-          "cell": 60,
-          "hit": 1,
-          "created": "2026-09-26 16:27:48",
-          "name": "Micah",
-          "color": "#34d399"
-        },
-        {
-          "cell": 59,
-          "hit": 1,
-          "created": "2026-09-26 16:27:51",
-          "name": "Micah",
-          "color": "#34d399"
-        },
-        {
-          "cell": 61,
-          "hit": 1,
-          "created": "2026-09-26 16:27:58",
+          "created": "2026-09-26 16:41:41",
           "name": "Jack",
-          "color": "#22d3ee"
+          "color": "#bef264"
+        },
+        {
+          "cell": 45,
+          "hit": 0,
+          "created": "2026-09-26 16:41:42",
+          "name": "Jack",
+          "color": "#bef264"
+        },
+        {
+          "cell": 18,
+          "hit": 0,
+          "created": "2026-09-26 16:41:42",
+          "name": "Jack",
+          "color": "#bef264"
+        },
+        {
+          "cell": 29,
+          "hit": 0,
+          "created": "2026-09-26 16:41:43",
+          "name": "Jack",
+          "color": "#bef264"
         }
       ],
       "players": [
         {
-          "name": "Ian",
-          "color": "#14b8a6",
-          "shots": 3,
-          "hits": 3
-        },
-        {
-          "name": "Mau",
-          "color": "#f87171",
-          "shots": 3,
-          "hits": 3
-        },
-        {
-          "name": "Aarav",
-          "color": "#fb923c",
-          "shots": 3,
-          "hits": 1
-        },
-        {
-          "name": "shane",
-          "color": "#a78b71",
-          "shots": 3,
-          "hits": 1
-        },
-        {
-          "name": "John",
-          "color": "#f472b6",
-          "shots": 3,
-          "hits": 0
-        },
-        {
-          "name": "Will",
-          "color": "#facc15",
-          "shots": 3,
-          "hits": 1
-        },
-        {
-          "name": "Josh",
-          "color": "#a3e635",
-          "shots": 5,
-          "hits": 3
-        },
-        {
-          "name": "Micah",
-          "color": "#34d399",
-          "shots": 5,
-          "hits": 4
-        },
-        {
           "name": "Jack",
-          "color": "#22d3ee",
-          "shots": 1,
-          "hits": 1
+          "color": "#bef264",
+          "shots": 4,
+          "hits": 0
         }
       ],
-      "sunk_ships": [
-        {
-          "cells": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        {
-          "cells": [
-            24,
-            32,
-            40,
-            48
-          ]
-        },
-        {
-          "cells": [
-            27,
-            35,
-            43
-          ]
-        },
-        {
-          "cells": [
-            59,
-            60,
-            61
-          ]
-        },
-        {
-          "cells": [
-            37,
-            38
-          ]
-        }
-      ]
+      "sunk_ships": []
     },
     {
       "name": "North",
