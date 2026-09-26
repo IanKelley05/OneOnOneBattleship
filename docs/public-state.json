@@ -31,6 +31,34 @@
           "created": "2026-09-26 16:41:43",
           "name": "Jack",
           "color": "#bef264"
+        },
+        {
+          "cell": 58,
+          "hit": 0,
+          "created": "2026-09-26 16:41:50",
+          "name": "Josh",
+          "color": "#f87171"
+        },
+        {
+          "cell": 24,
+          "hit": 1,
+          "created": "2026-09-26 16:41:51",
+          "name": "Josh",
+          "color": "#f87171"
+        },
+        {
+          "cell": 16,
+          "hit": 0,
+          "created": "2026-09-26 16:41:52",
+          "name": "Josh",
+          "color": "#f87171"
+        },
+        {
+          "cell": 32,
+          "hit": 1,
+          "created": "2026-09-26 16:41:52",
+          "name": "Josh",
+          "color": "#f87171"
         }
       ],
       "players": [
@@ -39,6 +67,12 @@
           "color": "#bef264",
           "shots": 4,
           "hits": 0
+        },
+        {
+          "name": "Josh",
+          "color": "#f87171",
+          "shots": 4,
+          "hits": 2
         }
       ],
       "sunk_ships": []
