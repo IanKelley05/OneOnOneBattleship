@@ -1,0 +1,8 @@
+instance/
+__pycache__/
+.venv/
+*.log
+instance/
+__pycache__/
+*.log
+.venv/
