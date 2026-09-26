@@ -33,13 +33,8 @@ function render(tower) {
   const overlay=document.createElementNS(SVG,'svg');
   overlay.classList.add('sunk-overlay');overlay.setAttribute('aria-hidden','true');
   for(const ship of tower.sunk_ships) {
-    const first=board.querySelectorAll('.cell')[ship.cells[0]];
-    const last=board.querySelectorAll('.cell')[ship.cells[ship.cells.length-1]];
-    const bounds=board.getBoundingClientRect();
-    const a=first.getBoundingClientRect(),b=last.getBoundingClientRect();
     const line=document.createElementNS(SVG,'line');
-    line.setAttribute('x1',a.left-bounds.left+a.width/2);line.setAttribute('y1',a.top-bounds.top+a.height/2);
-    line.setAttribute('x2',b.left-bounds.left+b.width/2);line.setAttribute('y2',b.top-bounds.top+b.height/2);
+    line.dataset.cells=ship.cells.join(',');
     overlay.append(line);
   }
   board.append(overlay);
@@ -57,14 +52,30 @@ function render(tower) {
   });
   results.append(log);layout.append(crew,waters,results);section.append(layout);return section;
 }
+function positionSunkShips() {
+  document.querySelectorAll('.sunk-overlay').forEach(overlay=>{
+    const board=overlay.closest('.board'),cells=board.querySelectorAll('.cell'),bounds=board.getBoundingClientRect();
+    overlay.setAttribute('width',bounds.width);overlay.setAttribute('height',bounds.height);
+    overlay.querySelectorAll('line').forEach(line=>{
+      const positions=line.dataset.cells.split(',').map(Number);
+      const first=cells[positions[0]],last=cells[positions[positions.length-1]];
+      if(!first || !last) return;
+      const a=first.getBoundingClientRect(),b=last.getBoundingClientRect();
+      line.setAttribute('x1',a.left-bounds.left+a.width/2);line.setAttribute('y1',a.top-bounds.top+a.height/2);
+      line.setAttribute('x2',b.left-bounds.left+b.width/2);line.setAttribute('y2',b.top-bounds.top+b.height/2);
+    });
+  });
+}
 async function load() {
   try {
-    const response=await fetch('./public-state.json',{cache:'no-store'});
+    const response=await fetch('./public-state.json?v=20260926-sunk-lines',{cache:'no-store'});
     if(!response.ok) throw new Error('Public snapshot unavailable');
     const data=await response.json();
-    if(data.version!==2 || data.towers.length!==2) throw new Error('Unsupported public snapshot');
+    if(![1,2].includes(data.version) || !Array.isArray(data.towers) || data.towers.length!==2) throw new Error('Unsupported public snapshot');
+    data.towers.forEach(tower=>{tower.sunk_ships=Array.isArray(tower.sunk_ships)?tower.sunk_ships:[];});
     document.getElementById('boards').replaceChildren(...data.towers.map(render));
-    window.addEventListener('resize',()=>document.getElementById('boards').replaceChildren(...data.towers.map(render)));
+    positionSunkShips();
+    window.addEventListener('resize',positionSunkShips);
     document.querySelectorAll('.log').forEach(log=>{log.scrollTop=log.scrollHeight;});
     document.getElementById('status').textContent='Read-only public boards. Reload to see the latest published shots.';
   }catch(error){document.getElementById('status').textContent='The public boards could not load. Please reload in a moment.';}
