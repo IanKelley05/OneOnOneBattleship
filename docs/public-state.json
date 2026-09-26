@@ -115,6 +115,34 @@
           "created": "2026-09-26 16:43:16",
           "name": "John",
           "color": "#facc15"
+        },
+        {
+          "cell": 51,
+          "hit": 0,
+          "created": "2026-09-26 16:43:36",
+          "name": "Micah",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 53,
+          "hit": 0,
+          "created": "2026-09-26 16:43:37",
+          "name": "Micah",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 60,
+          "hit": 1,
+          "created": "2026-09-26 16:43:37",
+          "name": "Micah",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 61,
+          "hit": 1,
+          "created": "2026-09-26 16:43:38",
+          "name": "Micah",
+          "color": "#a3e635"
         }
       ],
       "players": [
@@ -139,6 +167,12 @@
         {
           "name": "John",
           "color": "#facc15",
+          "shots": 4,
+          "hits": 2
+        },
+        {
+          "name": "Micah",
+          "color": "#a3e635",
           "shots": 4,
           "hits": 2
         }
