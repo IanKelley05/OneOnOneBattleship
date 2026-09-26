@@ -283,14 +283,42 @@
           "created": "2026-09-26 16:45:13",
           "name": "Xander",
           "color": "#c084fc"
+        },
+        {
+          "cell": 9,
+          "hit": 0,
+          "created": "2026-09-26 16:45:23",
+          "name": "Jack",
+          "color": "#bef264"
+        },
+        {
+          "cell": 19,
+          "hit": 0,
+          "created": "2026-09-26 16:45:24",
+          "name": "Jack",
+          "color": "#bef264"
+        },
+        {
+          "cell": 38,
+          "hit": 1,
+          "created": "2026-09-26 16:45:25",
+          "name": "Jack",
+          "color": "#bef264"
+        },
+        {
+          "cell": 30,
+          "hit": 0,
+          "created": "2026-09-26 16:45:26",
+          "name": "Jack",
+          "color": "#bef264"
         }
       ],
       "players": [
         {
           "name": "Jack",
           "color": "#bef264",
-          "shots": 4,
-          "hits": 0
+          "shots": 8,
+          "hits": 1
         },
         {
           "name": "Josh",
