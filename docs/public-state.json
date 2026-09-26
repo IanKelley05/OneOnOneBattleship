@@ -337,6 +337,41 @@
           "created": "2026-09-26 16:28:53",
           "name": "Dylan",
           "color": "#f87171"
+        },
+        {
+          "cell": 25,
+          "hit": 0,
+          "created": "2026-09-26 16:29:00",
+          "name": "Will",
+          "color": "#fb923c"
+        },
+        {
+          "cell": 24,
+          "hit": 1,
+          "created": "2026-09-26 16:29:00",
+          "name": "Will",
+          "color": "#fb923c"
+        },
+        {
+          "cell": 50,
+          "hit": 1,
+          "created": "2026-09-26 16:29:03",
+          "name": "Will",
+          "color": "#fb923c"
+        },
+        {
+          "cell": 49,
+          "hit": 1,
+          "created": "2026-09-26 16:29:05",
+          "name": "Will",
+          "color": "#fb923c"
+        },
+        {
+          "cell": 48,
+          "hit": 0,
+          "created": "2026-09-26 16:29:05",
+          "name": "Will",
+          "color": "#fb923c"
         }
       ],
       "players": [
@@ -349,6 +384,12 @@
         {
           "name": "Dylan",
           "color": "#f87171",
+          "shots": 5,
+          "hits": 3
+        },
+        {
+          "name": "Will",
+          "color": "#fb923c",
           "shots": 5,
           "hits": 3
         }
