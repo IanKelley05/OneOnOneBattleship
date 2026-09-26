@@ -143,6 +143,34 @@
           "created": "2026-09-26 16:43:38",
           "name": "Micah",
           "color": "#a3e635"
+        },
+        {
+          "cell": 62,
+          "hit": 0,
+          "created": "2026-09-26 16:43:55",
+          "name": "Pavle",
+          "color": "#34d399"
+        },
+        {
+          "cell": 59,
+          "hit": 1,
+          "created": "2026-09-26 16:43:56",
+          "name": "Pavle",
+          "color": "#34d399"
+        },
+        {
+          "cell": 12,
+          "hit": 0,
+          "created": "2026-09-26 16:43:57",
+          "name": "Pavle",
+          "color": "#34d399"
+        },
+        {
+          "cell": 13,
+          "hit": 0,
+          "created": "2026-09-26 16:43:58",
+          "name": "Pavle",
+          "color": "#34d399"
         }
       ],
       "players": [
@@ -175,6 +203,12 @@
           "color": "#a3e635",
           "shots": 4,
           "hits": 2
+        },
+        {
+          "name": "Pavle",
+          "color": "#34d399",
+          "shots": 4,
+          "hits": 1
         }
       ],
       "sunk_ships": [
@@ -184,6 +218,13 @@
             32,
             40,
             48
+          ]
+        },
+        {
+          "cells": [
+            59,
+            60,
+            61
           ]
         }
       ]
