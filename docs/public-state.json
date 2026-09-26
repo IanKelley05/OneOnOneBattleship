@@ -407,6 +407,41 @@
           "created": "2026-09-26 16:29:19",
           "name": "Xander",
           "color": "#facc15"
+        },
+        {
+          "cell": 13,
+          "hit": 1,
+          "created": "2026-09-26 16:29:25",
+          "name": "AJ",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 14,
+          "hit": 1,
+          "created": "2026-09-26 16:29:26",
+          "name": "AJ",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 26,
+          "hit": 1,
+          "created": "2026-09-26 16:29:27",
+          "name": "AJ",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 27,
+          "hit": 1,
+          "created": "2026-09-26 16:29:30",
+          "name": "AJ",
+          "color": "#a3e635"
+        },
+        {
+          "cell": 28,
+          "hit": 1,
+          "created": "2026-09-26 16:29:31",
+          "name": "AJ",
+          "color": "#a3e635"
         }
       ],
       "players": [
@@ -433,6 +468,12 @@
           "color": "#facc15",
           "shots": 5,
           "hits": 2
+        },
+        {
+          "name": "AJ",
+          "color": "#a3e635",
+          "shots": 5,
+          "hits": 5
         }
       ]
     }
