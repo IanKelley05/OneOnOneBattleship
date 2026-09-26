@@ -66,6 +66,27 @@
           "created": "2026-09-26 16:17:37",
           "name": "Aarav",
           "color": "#fb923c"
+        },
+        {
+          "cell": 43,
+          "hit": 1,
+          "created": "2026-09-26 16:17:47",
+          "name": "shane",
+          "color": "#a78b71"
+        },
+        {
+          "cell": 56,
+          "hit": 0,
+          "created": "2026-09-26 16:17:49",
+          "name": "shane",
+          "color": "#a78b71"
+        },
+        {
+          "cell": 63,
+          "hit": 0,
+          "created": "2026-09-26 16:17:50",
+          "name": "shane",
+          "color": "#a78b71"
         }
       ],
       "players": [
@@ -84,6 +105,12 @@
         {
           "name": "Aarav",
           "color": "#fb923c",
+          "shots": 3,
+          "hits": 1
+        },
+        {
+          "name": "shane",
+          "color": "#a78b71",
           "shots": 3,
           "hits": 1
         }
