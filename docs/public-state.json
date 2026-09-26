@@ -442,6 +442,27 @@
           "created": "2026-09-26 16:29:31",
           "name": "AJ",
           "color": "#a3e635"
+        },
+        {
+          "cell": 60,
+          "hit": 0,
+          "created": "2026-09-26 16:29:38",
+          "name": "Aarav",
+          "color": "#34d399"
+        },
+        {
+          "cell": 29,
+          "hit": 1,
+          "created": "2026-09-26 16:29:39",
+          "name": "Aarav",
+          "color": "#34d399"
+        },
+        {
+          "cell": 30,
+          "hit": 1,
+          "created": "2026-09-26 16:29:40",
+          "name": "Aarav",
+          "color": "#34d399"
         }
       ],
       "players": [
@@ -474,6 +495,12 @@
           "color": "#a3e635",
           "shots": 5,
           "hits": 5
+        },
+        {
+          "name": "Aarav",
+          "color": "#34d399",
+          "shots": 3,
+          "hits": 2
         }
       ]
     }
