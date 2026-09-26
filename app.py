@@ -53,6 +53,8 @@ with app.app_context():
         db().execute('INSERT OR IGNORE INTO towers(name,start) VALUES (?,?)', (name, (date.today() + timedelta(days=offset)).isoformat()))
     db().commit()
     db().executescript(PUBLISH_SCHEMA)
+    db().execute("INSERT OR IGNORE INTO settings(key,value) VALUES ('shots_per_meeting','3')")
+    db().commit()
 
 
 def fail(message, status=400):
@@ -116,7 +118,8 @@ def state(tower):
     standings = []
     for r in db().execute('SELECT t.name,t.start,t.ready,COUNT(s.id) shots,COALESCE(SUM(s.hit),0) hits FROM towers t LEFT JOIN shots s ON s.tower=t.name GROUP BY t.name ORDER BY t.name DESC'):
         standings.append(dict(r))
-    return jsonify(tower=dict(t), shots=shots, sunk_ships=sunk, players=players, turn=dict(turn) if turn else None, colors=COLORS, standings=standings, today=date.today().isoformat())
+    shots_per_meeting = int(db().execute("SELECT value FROM settings WHERE key='shots_per_meeting'").fetchone()['value'])
+    return jsonify(tower=dict(t), shots=shots, sunk_ships=sunk, players=players, turn=dict(turn) if turn else None, colors=COLORS, standings=standings, today=date.today().isoformat(), shots_per_meeting=shots_per_meeting)
 
 
 @app.post('/api/turn/<tower>')
@@ -130,7 +133,7 @@ def start_turn(tower):
     if conn.execute('SELECT SUM(hit) FROM shots WHERE tower=?', (tower,)).fetchone()[0] == 17:
         return fail('This fleet is already sunk.')
     if conn.execute('SELECT 1 FROM turns WHERE tower=? AND remaining>0', (tower,)).fetchone():
-        return fail('Finish the current three-shot meeting first.')
+        return fail('Finish the current meeting first.')
     name = str(data.get('name', '')).strip()
     if not name or len(name) > 60:
         return fail('Enter an RA name, up to 60 characters.')
@@ -146,7 +149,8 @@ def start_turn(tower):
             return fail('That color is already in use.')
     else:
         player_id = player['id']
-    conn.execute('INSERT INTO turns(tower,player) VALUES (?,?)', (tower, player_id))
+    shots_per_meeting = int(conn.execute("SELECT value FROM settings WHERE key='shots_per_meeting'").fetchone()['value'])
+    conn.execute('INSERT INTO turns(tower,player,remaining) VALUES (?,?,?)', (tower, player_id, shots_per_meeting))
     conn.commit()
     return jsonify(ok=True)
 
@@ -231,6 +235,18 @@ def change_password():
     conn.execute("UPDATE settings SET value=? WHERE key='password'", (generate_password_hash(new),))
     conn.commit()
     return jsonify(ok=True)
+
+
+@app.post('/api/shots-per-meeting')
+@organizer
+def set_shots_per_meeting():
+    value = (request.get_json(silent=True) or {}).get('count')
+    if type(value) is not int or not 1 <= value <= 10:
+        return fail('Choose between 1 and 10 shots per meeting.')
+    conn = db()
+    conn.execute("UPDATE settings SET value=? WHERE key='shots_per_meeting'", (str(value),))
+    conn.commit()
+    return jsonify(ok=True, count=value, message='Saved. Existing meetings keep their current shot allowance; new meetings use the updated setting.')
 
 
 @app.get('/api/fleet/<tower>')

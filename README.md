@@ -45,10 +45,10 @@ Open **http://127.0.0.1:5000**. Leave the terminal running; Ctrl+C stops the ser
 ## First-time setup
 
 1. Open **http://127.0.0.1:5000/organizer** and create an organizer password (8+ characters). The first password becomes the saved password.
-2. Set South’s opening date before any shots are taken. North opens seven days later, using the computer’s local date.
-3. Select South and place all five ships by clicking their starting squares. Toggle horizontal/vertical as needed. Save the fleet, then repeat for North. Each board is 8×8; fleet sizes are 5, 4, 3, 3, and 2. Ships may touch but cannot overlap. Clear placement to redo an unsaved arrangement. Fleets become immutable after that tower’s first shot.
+2. Set South and North opening dates independently, using the computer local date.
+3. Select each tower and place all five ships on its 8x8 board. Ships have lengths 5, 4, 3, 3, and 2; they may touch but cannot overlap. Click a placed ship to move it; saving changes recalculates previous hits. Reset a tower from Organizer to start it over.
 4. Click **Lock organizer**, then **Player board** before handing the screen to an RA. Close any other organizer tabs.
-5. The RA enters a new name and picks an unused color, or selects a returning name from the name field. Start the meeting and click three unused squares. Hits show × and misses show a dot, in that RA’s color. A new meeting can then begin. Returning RAs retain their color. There are 16 colors per tower.
+5. The RA enters a new name and picks an unused color, or selects a returning name from the name field. Start the meeting and click the configured number of unused squares (three by default). Hits show × and misses show a dot, in that RA’s color. A new meeting can then begin. Returning RAs retain their color. Organizer can set each new meeting to 1 to 10 shots; changing the setting does not alter a meeting already in progress. There are 16 colors per tower.
 
 Each tower has independent players, fleets, and turns. An interrupted meeting resumes with its remaining shots. The shot that finishes a ship is labeled **SUNK**, and a line connects that ship’s hit markers while preserving each RA’s color. The log runs from oldest to newest, opens at the bottom, and shows each move’s date and time in the browser’s local timezone. These details also appear for previously saved moves. Only fully sunk ships are revealed.
 

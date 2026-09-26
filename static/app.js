@@ -20,6 +20,7 @@ async function refresh() {
   state=await api('/api/state/'+tower);
   $('south').classList.toggle('selected',tower==='South'); $('north').classList.toggle('selected',tower==='North');
   $('date-label').textContent=`${tower} opens ${state.tower.start}`;
+  if($('shot-limit')) $('shot-limit').textContent=`${state.shots_per_meeting} shot${state.shots_per_meeting===1?'':'s'} per meeting`;
   const competition=$('competition'); competition.replaceChildren();
   state.standings.forEach(t=>{const item=node('div','','score');item.append(node('span',t.name+' Tower'),node('strong',t.shots),node('span',`shots · ${t.hits}/17 hits`));competition.append(item);});
   const finished=state.standings.filter(t=>t.hits===17);let verdict='Sink your fleet in fewer total shots to win.';
@@ -31,7 +32,7 @@ async function refresh() {
 function renderPlayer() {
   const hits=state.shots.reduce((a,s)=>a+s.hit,0), open=state.tower.ready && state.tower.start<=state.today && hits<17;
   $('board-title').textContent=tower+' Tower waters';$('hit-count').textContent=`${hits} / 17 hits`;
-  $('board-help').textContent=hits===17?'Fleet sunk! This tower’s final score is saved.':!state.tower.ready?'Your organizer is preparing this fleet.':state.tower.start>state.today?`Play opens on ${state.tower.start}.`:state.turn?'Select an untried square to fire.':'Select your name and start a meeting to take three shots.';
+  $('board-help').textContent=hits===17?'Fleet sunk! This tower’s final score is saved.':!state.tower.ready?'Your organizer is preparing this fleet.':state.tower.start>state.today?`Play opens on ${state.tower.start}.`:state.turn?'Select an untried square to fire.':'Select your name and start a meeting to take ${state.shots_per_meeting} shots.';
   makeBoard('board',(b,c)=>{const shot=state.shots.find(s=>s.cell===c);if(shot){b.classList.add('fired');b.style.setProperty('--shot',shot.color);b.textContent=shot.hit?'✕':'•';b.setAttribute('aria-label',`${coord(c)}: ${shot.hit?'hit':'miss'} by ${shot.name}`);}b.disabled=!!shot||!state.turn||!open;b.onclick=()=>act(async()=>{const result=await api('/api/shot/'+tower,{cell:c,turn:state.turn.id});notice(`${coord(c)} — ${result.sunk?'SUNK!':result.hit?'Hit!':'Miss.'}${result.won?' Fleet sunk!':''}`);await refresh();if(result.won) showWin();});});
   drawSunkShips();
   $('players').replaceChildren();$('names').replaceChildren();
@@ -88,6 +89,7 @@ async function renderAdmin() {
   if(!status.authenticated) return;
   await refreshPublishStatus();
   $('start-date').value=state.standings.find(t=>t.name==='South').start;
+  $('shots-count').value=state.shots_per_meeting;
   $('north-date').value=state.standings.find(t=>t.name==='North').start;
   ships=(await api('/api/fleet/'+tower)).ships; moving=null; renderPlacement();
 }
@@ -150,6 +152,7 @@ if(admin){
   $('login-form').onsubmit=e=>{e.preventDefault();act(async()=>{await api('/api/login',{password:$('password').value});$('password').value='';notice('Organizer unlocked. Keep this screen private.');await refresh();});};
   $('logout').onclick=()=>act(async()=>{await api('/api/logout',{});$('password-form').reset();$('password-status').textContent='';ships=[];$('setup-board').replaceChildren();notice('Organizer locked.');await refresh();});
   $('schedule').onsubmit=e=>{e.preventDefault();act(async()=>{await api('/api/schedule',{south:$('start-date').value,north:$('north-date').value});notice('Schedule saved.');await refresh();});};
+  $('shots-setting').onsubmit=e=>{e.preventDefault();act(async()=>{const result=await api('/api/shots-per-meeting',{count:Number($('shots-count').value)});$('shots-setting-status').textContent=result.message;await refresh();});};
   $('rotate').onclick=()=>{vertical=!vertical;renderPlacement();};$('clear').onclick=()=>{ships=[];moving=null;renderPlacement();};
   $('cancel-move').onclick=()=>{moving=null;notice('Move canceled.');renderPlacement();};
   $('reset-board').onclick=()=>act(async()=>{
@@ -159,7 +162,7 @@ if(admin){
   $('save-fleet').onclick=()=>act(async()=>{await api('/api/setup/'+tower,{ships});notice(tower+' fleet saved.');await refresh();});
 }else{
   $('player-name').oninput=renderColors;
-  $('turn-form').onsubmit=e=>{e.preventDefault();act(async()=>{await api('/api/turn/'+tower,{name:$('player-name').value,color:selectedColor});notice('Meeting started. Take three shots.');await refresh();});};
+  $('turn-form').onsubmit=e=>{e.preventDefault();act(async()=>{await api('/api/turn/'+tower,{name:$('player-name').value,color:selectedColor});notice(`Meeting started. Take ${state.shots_per_meeting} shots.`);await refresh();});};
 }
 act(refresh);
 

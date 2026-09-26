@@ -1,4 +1,4 @@
-"""Public-only snapshot builder. Never reads ships, settings, or turn state."""
+"""Public snapshots read only shots and fully sunk ship geometry."""
 import os
 import json
 import re
@@ -21,6 +21,13 @@ def public_snapshot(conn):
             FROM shots s JOIN players p ON p.id=s.player
             WHERE s.tower=? ORDER BY s.id
         ''', (tower,))]
+        hit_cells = {shot['cell'] for shot in shots if shot['hit']}
+        # A ship's geometry becomes public only after every square was hit.
+        sunk_ships = []
+        for row in conn.execute('SELECT cells FROM ships WHERE tower=?', (tower,)):
+            cells = sorted(map(int, row['cells'].split(',')))
+            if cells and set(cells).issubset(hit_cells):
+                sunk_ships.append({'cells': cells})
         # Only people represented in the published shot history are public players.
         players = {}
         for shot in shots:
@@ -28,12 +35,12 @@ def public_snapshot(conn):
             player = players.setdefault(key, {'name': shot['name'], 'color': shot['color'], 'shots': 0, 'hits': 0})
             player['shots'] += 1
             player['hits'] += shot['hit']
-        towers.append({'name': tower, 'shots': shots, 'players': list(players.values())})
+        towers.append({'name': tower, 'shots': shots, 'players': list(players.values()), 'sunk_ships': sunk_ships})
     return towers
 
 
 def public_state(conn):
-    return {'version': 1, 'towers': public_snapshot(conn)}
+    return {'version': 2, 'towers': public_snapshot(conn)}
 
 
 def check_public_state(conn, payload):
@@ -43,9 +50,13 @@ def check_public_state(conn, payload):
     if payload != public_state(conn):
         raise ValueError('Public state must contain only the current recorded shots and public player totals.')
     for tower in payload['towers']:
-        recorded = {r['cell'] for r in conn.execute('SELECT cell FROM shots WHERE tower=?', (tower['name'],))}
+        rows = conn.execute('SELECT cell,hit FROM shots WHERE tower=?', (tower['name'],))
+        recorded = {r['cell'] for r in rows}
         if any(shot['cell'] not in recorded for shot in tower['shots']):
             raise ValueError('Public state contains an unshot location.')
+        hit_cells = {shot['cell'] for shot in tower['shots'] if shot['hit']}
+        if any(not set(ship['cells']).issubset(hit_cells) for ship in tower['sunk_ships']):
+            raise ValueError('Public state reveals an unsunk ship location.')
 
 
 def write_public_state(conn, path):

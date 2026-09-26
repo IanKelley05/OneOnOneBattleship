@@ -25,6 +25,10 @@ class GameTest(unittest.TestCase):
         self.assertEqual(client.get('/api/fleet/South').status_code,403)
         self.assertEqual(client.post('/api/login',json={'password':'testpassword'}).status_code,403)
         self.assertEqual(post('/api/login',{'password':'testpassword'}).status_code,200)
+        self.assertEqual(client.get('/api/state/South').json['shots_per_meeting'],3)
+        self.assertEqual(post('/api/shots-per-meeting',{'count':0}).status_code,400)
+        self.assertEqual(post('/api/shots-per-meeting',{'count':11}).status_code,400)
+        self.assertEqual(post('/api/shots-per-meeting',{'count':3.0}).status_code,400)
         self.assertEqual(post('/api/setup/South',{'ships':[[0]*5]+fleet[1:]}).status_code,400)
         app.config['EXPORT_ROOT'] = Path(storage.name) / 'exports'
         before_export = client.get('/api/state/South').json
@@ -105,8 +109,29 @@ class GameTest(unittest.TestCase):
         self.assertEqual(post('/api/schedule',{'south':date.today().isoformat(),'north':'invalid'}).status_code,400)
         self.assertEqual(client.get('/api/state/North').json['tower']['start'],date.today().isoformat())
         self.assertEqual(post('/api/turn/North',{'name':'North RA','color':'#60a5fa'}).status_code,200)
-        north_turn=client.get('/api/state/North').json['turn']['id']
-        self.assertEqual(post('/api/shot/North',{'cell':0,'turn':north_turn}).status_code,200)
+        self.assertEqual(post('/api/shots-per-meeting',{'count':5}).status_code,200)
+        self.assertEqual(post('/api/turn/North',{'name':'Another RA','color':'#22d3ee'}).status_code,400)
+        self.assertEqual(client.get('/api/state/North').json['shots_per_meeting'],5)
+        north_turn=client.get('/api/state/North').json['turn']
+        self.assertEqual(north_turn['remaining'],3)  # Current meeting keeps its original allowance.
+        # Finish the pre-change three-shot meeting, then start a new five-shot meeting.
+        for cell in [0,1,2]:
+            self.assertEqual(post('/api/shot/North',{'cell':cell,'turn':north_turn['id']}).status_code,200)
+        self.assertEqual(post('/api/turn/North',{'name':'North RA'}).status_code,200)
+        north_turn=client.get('/api/state/North').json['turn']
+        self.assertEqual(north_turn['remaining'],5)
+        self.assertEqual(post('/api/shots-per-meeting',{'count':2}).status_code,200)
+        self.assertEqual(client.get('/api/state/North').json['turn']['remaining'],5)
+        self.assertEqual(client.get('/api/state/North').json['shots_per_meeting'],2)
+        for cell in [3,4,5,6]:
+            self.assertEqual(post('/api/shot/North',{'cell':cell,'turn':north_turn['id']}).status_code,200)
+        self.assertEqual(client.get('/api/state/North').json['turn']['remaining'],1)
+        self.assertEqual(post('/api/shot/North',{'cell':7,'turn':north_turn['id']}).status_code,200)
+        self.assertIsNone(client.get('/api/state/North').json['turn'])
+        self.assertEqual(post('/api/turn/North',{'name':'North RA'}).status_code,200)
+        north_turn=client.get('/api/state/North').json['turn']
+        self.assertEqual(north_turn['remaining'],2)
+        self.assertEqual(post('/api/shot/North',{'cell':8,'turn':north_turn['id']}).status_code,200)
         north_before=client.get('/api/state/North').json
         self.assertEqual(post('/api/reset/South',{}).status_code,400)
         self.assertEqual(len(client.get('/api/state/South').json['shots']),18)
@@ -145,6 +170,7 @@ class GameTest(unittest.TestCase):
         self.assertEqual(post('/api/login',{'password':'replacement123'}).status_code,200)
         self.assertEqual(post('/api/logout',{}).status_code,200)
         self.assertEqual(client.get('/api/fleet/South').status_code,403)
+        self.assertEqual(client.get('/api/state/North').json['shots_per_meeting'],2)
         with app.app_context():
             self.assertEqual(db().execute('PRAGMA integrity_check').fetchone()[0],'ok')
 

@@ -3,6 +3,7 @@ const element = (tag, text='', className='') => {
   const el=document.createElement(tag);el.textContent=text;if(className) el.className=className;return el;
 };
 const coordinate = cell => String.fromCharCode(65+Math.floor(cell/8))+(cell%8+1);
+const SVG='http://www.w3.org/2000/svg';
 function paint(el,color) {el.style.setProperty('--shot', /^#[0-9a-f]{6}$/i.test(color)?color:'#e2e8f0');}
 function person(player, text) {
   const row=element('div','','person'),dot=element('span','','dot');paint(dot,player.color);
@@ -29,6 +30,19 @@ function render(tower) {
       board.append(square);
     }
   }
+  const overlay=document.createElementNS(SVG,'svg');
+  overlay.classList.add('sunk-overlay');overlay.setAttribute('aria-hidden','true');
+  for(const ship of tower.sunk_ships) {
+    const first=board.querySelectorAll('.cell')[ship.cells[0]];
+    const last=board.querySelectorAll('.cell')[ship.cells[ship.cells.length-1]];
+    const bounds=board.getBoundingClientRect();
+    const a=first.getBoundingClientRect(),b=last.getBoundingClientRect();
+    const line=document.createElementNS(SVG,'line');
+    line.setAttribute('x1',a.left-bounds.left+a.width/2);line.setAttribute('y1',a.top-bounds.top+a.height/2);
+    line.setAttribute('x2',b.left-bounds.left+b.width/2);line.setAttribute('y2',b.top-bounds.top+b.height/2);
+    overlay.append(line);
+  }
+  board.append(overlay);
   waters.append(board,element('p','✕ Hit · • Miss · Color = RA who fired','legend'));
   results.append(element('h2','Hits leaderboard'));
   const ranking=element('div','','ranking');
@@ -48,8 +62,9 @@ async function load() {
     const response=await fetch('./public-state.json',{cache:'no-store'});
     if(!response.ok) throw new Error('Public snapshot unavailable');
     const data=await response.json();
-    if(data.version!==1 || data.towers.length!==2) throw new Error('Unsupported public snapshot');
+    if(data.version!==2 || data.towers.length!==2) throw new Error('Unsupported public snapshot');
     document.getElementById('boards').replaceChildren(...data.towers.map(render));
+    window.addEventListener('resize',()=>document.getElementById('boards').replaceChildren(...data.towers.map(render)));
     document.querySelectorAll('.log').forEach(log=>{log.scrollTop=log.scrollHeight;});
     document.getElementById('status').textContent='Read-only public boards. Reload to see the latest published shots.';
   }catch(error){document.getElementById('status').textContent='The public boards could not load. Please reload in a moment.';}
