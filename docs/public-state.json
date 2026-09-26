@@ -372,6 +372,41 @@
           "created": "2026-09-26 16:29:05",
           "name": "Will",
           "color": "#fb923c"
+        },
+        {
+          "cell": 51,
+          "hit": 1,
+          "created": "2026-09-26 16:29:12",
+          "name": "Xander",
+          "color": "#facc15"
+        },
+        {
+          "cell": 21,
+          "hit": 0,
+          "created": "2026-09-26 16:29:14",
+          "name": "Xander",
+          "color": "#facc15"
+        },
+        {
+          "cell": 12,
+          "hit": 1,
+          "created": "2026-09-26 16:29:14",
+          "name": "Xander",
+          "color": "#facc15"
+        },
+        {
+          "cell": 11,
+          "hit": 0,
+          "created": "2026-09-26 16:29:18",
+          "name": "Xander",
+          "color": "#facc15"
+        },
+        {
+          "cell": 4,
+          "hit": 0,
+          "created": "2026-09-26 16:29:19",
+          "name": "Xander",
+          "color": "#facc15"
         }
       ],
       "players": [
@@ -392,6 +427,12 @@
           "color": "#fb923c",
           "shots": 5,
           "hits": 3
+        },
+        {
+          "name": "Xander",
+          "color": "#facc15",
+          "shots": 5,
+          "hits": 2
         }
       ]
     }
