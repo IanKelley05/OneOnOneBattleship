@@ -199,6 +199,34 @@
           "created": "2026-09-26 16:44:09",
           "name": "Shane",
           "color": "#22d3ee"
+        },
+        {
+          "cell": 0,
+          "hit": 1,
+          "created": "2026-09-26 16:44:17",
+          "name": "Cade",
+          "color": "#60a5fa"
+        },
+        {
+          "cell": 1,
+          "hit": 1,
+          "created": "2026-09-26 16:44:17",
+          "name": "Cade",
+          "color": "#60a5fa"
+        },
+        {
+          "cell": 3,
+          "hit": 1,
+          "created": "2026-09-26 16:44:17",
+          "name": "Cade",
+          "color": "#60a5fa"
+        },
+        {
+          "cell": 4,
+          "hit": 1,
+          "created": "2026-09-26 16:44:18",
+          "name": "Cade",
+          "color": "#60a5fa"
         }
       ],
       "players": [
@@ -243,9 +271,24 @@
           "color": "#22d3ee",
           "shots": 4,
           "hits": 1
+        },
+        {
+          "name": "Cade",
+          "color": "#60a5fa",
+          "shots": 4,
+          "hits": 4
         }
       ],
       "sunk_ships": [
+        {
+          "cells": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
         {
           "cells": [
             24,
