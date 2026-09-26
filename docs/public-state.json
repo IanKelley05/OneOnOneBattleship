@@ -24,12 +24,39 @@
           "created": "2026-09-26 04:32:47",
           "name": "Ian",
           "color": "#14b8a6"
+        },
+        {
+          "cell": 3,
+          "hit": 1,
+          "created": "2026-09-26 16:17:27",
+          "name": "Mau",
+          "color": "#f87171"
+        },
+        {
+          "cell": 4,
+          "hit": 1,
+          "created": "2026-09-26 16:17:27",
+          "name": "Mau",
+          "color": "#f87171"
+        },
+        {
+          "cell": 35,
+          "hit": 1,
+          "created": "2026-09-26 16:17:29",
+          "name": "Mau",
+          "color": "#f87171"
         }
       ],
       "players": [
         {
           "name": "Ian",
           "color": "#14b8a6",
+          "shots": 3,
+          "hits": 3
+        },
+        {
+          "name": "Mau",
+          "color": "#f87171",
           "shots": 3,
           "hits": 3
         }
