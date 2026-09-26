@@ -255,6 +255,34 @@
           "created": "2026-09-26 16:44:59",
           "name": "Ian",
           "color": "#818cf8"
+        },
+        {
+          "cell": 39,
+          "hit": 0,
+          "created": "2026-09-26 16:45:10",
+          "name": "Xander",
+          "color": "#c084fc"
+        },
+        {
+          "cell": 50,
+          "hit": 0,
+          "created": "2026-09-26 16:45:12",
+          "name": "Xander",
+          "color": "#c084fc"
+        },
+        {
+          "cell": 56,
+          "hit": 0,
+          "created": "2026-09-26 16:45:12",
+          "name": "Xander",
+          "color": "#c084fc"
+        },
+        {
+          "cell": 52,
+          "hit": 0,
+          "created": "2026-09-26 16:45:13",
+          "name": "Xander",
+          "color": "#c084fc"
         }
       ],
       "players": [
@@ -309,6 +337,12 @@
         {
           "name": "Ian",
           "color": "#818cf8",
+          "shots": 4,
+          "hits": 0
+        },
+        {
+          "name": "Xander",
+          "color": "#c084fc",
           "shots": 4,
           "hits": 0
         }
