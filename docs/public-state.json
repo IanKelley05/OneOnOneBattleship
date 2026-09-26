@@ -269,242 +269,47 @@
       "name": "North",
       "shots": [
         {
-          "cell": 0,
-          "hit": 1,
-          "created": "2026-09-26 03:24:46",
-          "name": "Minali",
-          "color": "#f472b6"
-        },
-        {
-          "cell": 8,
-          "hit": 1,
-          "created": "2026-09-26 03:25:10",
-          "name": "Minali",
-          "color": "#f472b6"
-        },
-        {
-          "cell": 16,
-          "hit": 1,
-          "created": "2026-09-26 03:25:16",
-          "name": "Minali",
-          "color": "#f472b6"
-        },
-        {
-          "cell": 24,
-          "hit": 1,
-          "created": "2026-09-26 03:25:48",
-          "name": "Minali 2",
-          "color": "#34d399"
-        },
-        {
-          "cell": 21,
+          "cell": 9,
           "hit": 0,
-          "created": "2026-09-26 03:26:01",
-          "name": "Minali 2",
-          "color": "#34d399"
+          "created": "2026-09-26 16:28:38",
+          "name": "Braden",
+          "color": "#60a5fa"
         },
         {
-          "cell": 49,
-          "hit": 1,
-          "created": "2026-09-26 03:26:15",
-          "name": "Minali 2",
-          "color": "#34d399"
+          "cell": 36,
+          "hit": 0,
+          "created": "2026-09-26 16:28:39",
+          "name": "Braden",
+          "color": "#60a5fa"
         },
         {
           "cell": 57,
           "hit": 0,
-          "created": "2026-09-26 03:26:36",
-          "name": "Minali 3",
-          "color": "#e2e8f0"
-        },
-        {
-          "cell": 41,
-          "hit": 0,
-          "created": "2026-09-26 03:26:40",
-          "name": "Minali 3",
-          "color": "#e2e8f0"
-        },
-        {
-          "cell": 50,
-          "hit": 1,
-          "created": "2026-09-26 03:26:43",
-          "name": "Minali 3",
-          "color": "#e2e8f0"
-        },
-        {
-          "cell": 51,
-          "hit": 1,
-          "created": "2026-09-26 03:26:49",
-          "name": "Minali 4",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 1,
-          "hit": 0,
-          "created": "2026-09-26 03:26:58",
-          "name": "Minali 4",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 27,
-          "hit": 1,
-          "created": "2026-09-26 03:27:06",
-          "name": "Minali 4",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 28,
-          "hit": 1,
-          "created": "2026-09-26 03:27:13",
-          "name": "Minali 5",
-          "color": "#facc15"
-        },
-        {
-          "cell": 29,
-          "hit": 1,
-          "created": "2026-09-26 03:27:16",
-          "name": "Minali 5",
-          "color": "#facc15"
-        },
-        {
-          "cell": 30,
-          "hit": 1,
-          "created": "2026-09-26 03:27:19",
-          "name": "Minali 5",
-          "color": "#facc15"
-        },
-        {
-          "cell": 31,
-          "hit": 0,
-          "created": "2026-09-26 03:27:24",
-          "name": "Minali 6",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 26,
-          "hit": 1,
-          "created": "2026-09-26 03:27:28",
-          "name": "Minali 6",
-          "color": "#a3e635"
+          "created": "2026-09-26 16:28:40",
+          "name": "Braden",
+          "color": "#60a5fa"
         },
         {
           "cell": 54,
           "hit": 1,
-          "created": "2026-09-26 03:27:37",
-          "name": "Minali 6",
-          "color": "#a3e635"
+          "created": "2026-09-26 16:28:41",
+          "name": "Braden",
+          "color": "#60a5fa"
         },
         {
           "cell": 46,
           "hit": 1,
-          "created": "2026-09-26 03:27:41",
-          "name": "Minali 7",
-          "color": "#f87171"
-        },
-        {
-          "cell": 53,
-          "hit": 0,
-          "created": "2026-09-26 03:27:41",
-          "name": "Minali 7",
-          "color": "#f87171"
-        },
-        {
-          "cell": 62,
-          "hit": 0,
-          "created": "2026-09-26 03:27:42",
-          "name": "Minali 7",
-          "color": "#f87171"
-        },
-        {
-          "cell": 14,
-          "hit": 1,
-          "created": "2026-09-26 03:27:46",
-          "name": "Minali 8",
-          "color": "#22d3ee"
-        },
-        {
-          "cell": 13,
-          "hit": 1,
-          "created": "2026-09-26 03:27:46",
-          "name": "Minali 8",
-          "color": "#22d3ee"
-        },
-        {
-          "cell": 15,
-          "hit": 0,
-          "created": "2026-09-26 03:27:47",
-          "name": "Minali 8",
-          "color": "#22d3ee"
-        },
-        {
-          "cell": 19,
-          "hit": 0,
-          "created": "2026-09-26 03:27:51",
-          "name": "Minali 9",
-          "color": "#60a5fa"
-        },
-        {
-          "cell": 12,
-          "hit": 1,
-          "created": "2026-09-26 03:27:51",
-          "name": "Minali 9",
+          "created": "2026-09-26 16:28:43",
+          "name": "Braden",
           "color": "#60a5fa"
         }
       ],
       "players": [
         {
-          "name": "Minali",
-          "color": "#f472b6",
-          "shots": 3,
-          "hits": 3
-        },
-        {
-          "name": "Minali 2",
-          "color": "#34d399",
-          "shots": 3,
-          "hits": 2
-        },
-        {
-          "name": "Minali 3",
-          "color": "#e2e8f0",
-          "shots": 3,
-          "hits": 1
-        },
-        {
-          "name": "Minali 4",
-          "color": "#fb923c",
-          "shots": 3,
-          "hits": 2
-        },
-        {
-          "name": "Minali 5",
-          "color": "#facc15",
-          "shots": 3,
-          "hits": 3
-        },
-        {
-          "name": "Minali 6",
-          "color": "#a3e635",
-          "shots": 3,
-          "hits": 2
-        },
-        {
-          "name": "Minali 7",
-          "color": "#f87171",
-          "shots": 3,
-          "hits": 1
-        },
-        {
-          "name": "Minali 8",
-          "color": "#22d3ee",
-          "shots": 3,
-          "hits": 2
-        },
-        {
-          "name": "Minali 9",
+          "name": "Braden",
           "color": "#60a5fa",
-          "shots": 2,
-          "hits": 1
+          "shots": 5,
+          "hits": 2
         }
       ]
     }
