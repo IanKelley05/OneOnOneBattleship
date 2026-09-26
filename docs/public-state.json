@@ -87,6 +87,27 @@
           "created": "2026-09-26 16:17:50",
           "name": "shane",
           "color": "#a78b71"
+        },
+        {
+          "cell": 49,
+          "hit": 0,
+          "created": "2026-09-26 16:17:56",
+          "name": "John",
+          "color": "#f472b6"
+        },
+        {
+          "cell": 54,
+          "hit": 0,
+          "created": "2026-09-26 16:17:57",
+          "name": "John",
+          "color": "#f472b6"
+        },
+        {
+          "cell": 58,
+          "hit": 0,
+          "created": "2026-09-26 16:17:58",
+          "name": "John",
+          "color": "#f472b6"
         }
       ],
       "players": [
@@ -113,6 +134,12 @@
           "color": "#a78b71",
           "shots": 3,
           "hits": 1
+        },
+        {
+          "name": "John",
+          "color": "#f472b6",
+          "shots": 3,
+          "hits": 0
         }
       ]
     },
