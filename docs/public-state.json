@@ -108,6 +108,27 @@
           "created": "2026-09-26 16:17:58",
           "name": "John",
           "color": "#f472b6"
+        },
+        {
+          "cell": 17,
+          "hit": 0,
+          "created": "2026-09-26 16:18:06",
+          "name": "Will",
+          "color": "#facc15"
+        },
+        {
+          "cell": 22,
+          "hit": 0,
+          "created": "2026-09-26 16:18:07",
+          "name": "Will",
+          "color": "#facc15"
+        },
+        {
+          "cell": 38,
+          "hit": 1,
+          "created": "2026-09-26 16:18:12",
+          "name": "Will",
+          "color": "#facc15"
         }
       ],
       "players": [
@@ -140,6 +161,12 @@
           "color": "#f472b6",
           "shots": 3,
           "hits": 0
+        },
+        {
+          "name": "Will",
+          "color": "#facc15",
+          "shots": 3,
+          "hits": 1
         }
       ]
     },
