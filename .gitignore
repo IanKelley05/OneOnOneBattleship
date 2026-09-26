@@ -1,6 +1,7 @@
 instance/
 __pycache__/
 .venv/
+exports/
 *.log
 instance/
 __pycache__/

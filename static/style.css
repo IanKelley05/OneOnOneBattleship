@@ -5,3 +5,5 @@
 .cell.moving{outline:2px dashed #facc15;outline-offset:-4px}.danger{color:#fca5a5;border-color:#995959}.danger:hover:not(:disabled){background:#482b35}
 
 .password-panel{margin-top:22px;max-width:520px}.stat-row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #253648;font-size:13px}.stat-row strong{text-align:right;color:#8ae4d8;overflow-wrap:anywhere}.stat-row:first-child strong{font-size:25px}dialog{background:#132738;color:#e6edf5;border:1px solid #68dacc;border-radius:18px;padding:32px;max-width:460px;width:calc(100% - 32px)}dialog::backdrop{background:#050d18cc}dialog h2{font-size:40px;margin:16px 0}
+
+.export-panel{margin-top:22px}.export-panel #export-status{overflow-wrap:anywhere}

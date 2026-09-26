@@ -5,7 +5,9 @@ from datetime import date, timedelta
 from functools import wraps
 from pathlib import Path
 
-from flask import Flask, g, jsonify, render_template, request, session
+from flask import Flask, g, jsonify, render_template, request, session, send_file
+from public_export import write_public_export
+from publishing import Publisher, SCHEMA as PUBLISH_SCHEMA, enqueue
 from werkzeug.security import check_password_hash, generate_password_hash
 
 ROOT = Path(__file__).parent
@@ -17,6 +19,9 @@ if not secret_file.exists():
 app = Flask(__name__)
 app.secret_key = secret_file.read_text()
 app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE='Strict')
+app.config['EXPORT_ROOT'] = ROOT / 'exports'
+app.config['PUBLISH_ENABLED'] = True
+publisher = Publisher(ROOT, DATA)
 COLORS = ['#f87171', '#fb923c', '#facc15', '#a3e635', '#34d399', '#22d3ee', '#60a5fa', '#818cf8', '#c084fc', '#f472b6', '#e2e8f0', '#a78b71', '#14b8a6', '#e879f9', '#fda4af', '#bef264']
 FLEET = [5, 4, 3, 3, 2]
 
@@ -47,10 +52,19 @@ with app.app_context():
     for name, offset in [('South', 0), ('North', 7)]:
         db().execute('INSERT OR IGNORE INTO towers(name,start) VALUES (?,?)', (name, (date.today() + timedelta(days=offset)).isoformat()))
     db().commit()
+    db().executescript(PUBLISH_SCHEMA)
 
 
 def fail(message, status=400):
     return jsonify(error=message), status
+
+
+def wake_publisher():
+    if app.config['PUBLISH_ENABLED']:
+        try:
+            publisher.wake()
+        except Exception:
+            app.logger.exception('Publisher could not start; durable job remains queued')
 
 
 def sunk_ships(tower):
@@ -159,8 +173,13 @@ def shoot(tower):
     won = conn.execute('SELECT SUM(hit) FROM shots WHERE tower=?', (tower,)).fetchone()[0] == 17
     conn.execute('UPDATE turns SET remaining=? WHERE id=?', (0 if won else turn['remaining'] - 1, turn['id']))
     sunk = any(ship['shot_id'] == shot_id for ship in sunk_ships(tower))
+    finished = won or turn['remaining'] == 1
+    if finished:
+        enqueue(conn)
     conn.commit()
-    return jsonify(hit=hit, sunk=sunk, won=won)
+    if finished:
+        wake_publisher()
+    return jsonify(hit=hit, sunk=sunk, won=won, publication_queued=finished)
 
 
 @app.get('/api/organizer')
@@ -286,5 +305,51 @@ def reset(tower):
     return jsonify(ok=True)
 
 
+@app.post('/api/export/<mode>')
+@organizer
+def export_board(mode):
+    if mode not in ('preview', 'public'):
+        return fail('Unknown export option.', 404)
+    conn = db()
+    conn.execute('BEGIN')
+    try:
+        path = write_public_export(conn, Path(app.config['EXPORT_ROOT']) / mode)
+    except (OSError, ValueError):
+        app.logger.exception('Public export failed')
+        return fail('Could not generate export. Check the export folder and server log.', 500)
+    finally:
+        conn.rollback()
+    return jsonify(ok=True, path=str(path), url=f'/public-export/{mode}/index.html')
+
+
+@app.get('/api/publish/status')
+@organizer
+def publish_status():
+    return jsonify(dict(db().execute('SELECT status,message,requested,published,updated FROM publication WHERE id=1').fetchone()))
+
+
+@app.post('/api/publish')
+@organizer
+def publish_board():
+    enqueue(db())
+    db().commit()
+    wake_publisher()
+    return jsonify(ok=True, message='Game saved. Public update queued for GitHub.')
+
+
+@app.get('/public-export/<mode>/index.html')
+@organizer
+def view_public_export(mode):
+    if mode not in ('preview', 'public'):
+        return fail('Unknown export option.', 404)
+    path = Path(app.config['EXPORT_ROOT']) / mode / 'index.html'
+    if not path.is_file():
+        return fail('Generate an export first.', 404)
+    response = send_file(path, mimetype='text/html', max_age=0)
+    response.headers['Cache-Control'] = 'no-store'
+    return response
+
+
 if __name__ == '__main__':
+    wake_publisher()
     app.run(host='127.0.0.1', port=5000, debug=False)

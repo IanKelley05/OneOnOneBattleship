@@ -84,7 +84,9 @@ function renderColors() {
 async function renderAdmin() {
   const status=await api('/api/organizer');$('login-panel').hidden=status.authenticated;$('admin-panel').hidden=!status.authenticated;document.querySelector('.password-panel').hidden=!status.authenticated;
   $('login-help').textContent=status.configured?'Enter your organizer password to view or place hidden ships.':'Create an organizer password (at least eight characters) before handing the screen to an RA.';
+  $('export-panel').hidden=!status.authenticated;
   if(!status.authenticated) return;
+  await refreshPublishStatus();
   $('start-date').value=state.standings.find(t=>t.name==='South').start;
   $('north-date').value=state.standings.find(t=>t.name==='North').start;
   ships=(await api('/api/fleet/'+tower)).ships; moving=null; renderPlacement();
@@ -120,6 +122,24 @@ function renderPlacement() {
 }
 for(const t of ['South','North']) $(t.toLowerCase()).onclick=()=>act(async()=>{tower=t;notice('');await refresh();});
 if(admin){
+  for(const [id,mode] of [['preview-export','preview']]) {
+    $(id).onclick=()=>act(async()=>{
+      $('export-link').hidden=true;
+      $('export-status').textContent='Generating public snapshot...';
+      try {
+        const result=await api('/api/export/'+mode,{});
+        $('export-status').textContent=`${mode==='preview'?'Preview ready':'Local publish ready'}. Files: ${result.path}. Nothing uploaded.`;
+        $('export-link').href=result.url;
+        $('export-link').hidden=false;
+        $('export-link').focus();
+      } catch(error) {$('export-status').textContent=error.message;}
+    });
+  }
+  for(const id of ['publish-board','retry-publish']) $(id).onclick=()=>act(async()=>{
+    await api('/api/publish',{});
+    await refreshPublishStatus();
+  });
+  setInterval(()=>{if(!$('export-panel').hidden) refreshPublishStatus().catch(()=>{});},3000);
   $('password-form').onsubmit=e=>{e.preventDefault();act(async()=>{
     const status=$('password-status'); status.textContent='';
     try {
@@ -142,6 +162,12 @@ if(admin){
   $('turn-form').onsubmit=e=>{e.preventDefault();act(async()=>{await api('/api/turn/'+tower,{name:$('player-name').value,color:selectedColor});notice('Meeting started. Take three shots.');await refresh();});};
 }
 act(refresh);
+
+async function refreshPublishStatus() {
+  const status=await api('/api/publish/status');
+  $('publish-status').textContent=status.message;
+  $('retry-publish').hidden=!['failed','queued'].includes(status.status);
+}
 
 // Measure actual cell centers so the overlay follows the responsive grid.
 function drawSunkShips() {

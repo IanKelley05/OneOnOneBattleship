@@ -1,5 +1,34 @@
 # Tower Battleship
 
+## Public viewer and automatic publishing
+
+`docs/index.html`, `docs/viewer.js`, and `docs/viewer.css` are the static read-only viewer. `docs/public-state.json` is its only data source. Both towers are shown with recorded hits/misses, RA display names and colors, dated logs, and leaderboards. No hidden fleet geometry, unshot occupancy, schedules, active turns, database IDs, passwords, or session data is exported.
+
+After a third shot (or an earlier fleet-winning shot), the game queues a publication in the same database transaction as the shot. Only after commit does a background thread export, check, commit, and push `docs/public-state.json` to `IanKelley05/OneOnOneBattleship`, branch `main`. Players do not wait for GitHub. Git has a timeout and cannot open interactive login windows. Run one `python app.py` server process at a time.
+
+The publisher uses a separate bare Git repository and index inside ignored `instance/publisher.git`. It starts from the latest remote branch, constructs a commit changing only `docs/public-state.json`, verifies the changed-path list, and pushes without force. It never stages the local worktree or pushes unrelated local commits. GitHub's existing remote history is retained. Your normal Git checkout is not automatically merged or modified by publication; fetch/reconcile remote updates before your next source-code push.
+
+Publishing status and **Retry publishing** appear in Organizer. Offline, credential, and rejected-push errors leave the game saved and the job pending. Retry exports the latest saved board. Pending jobs also resume when `python app.py` restarts. Multiple completed turns are coalesced; a turn arriving during a push stays queued. Use **Publish board** to publish organizer changes such as resets or moved ships. **Preview public export** still creates only a local standalone preview in `exports/preview/index.html`.
+
+GitHub Pages is configured to use **main /docs** as its publishing source, and OneOnOneBattleship is public. The initial viewer assets are a one-time setup; automatic updates commit only the state file. The public URL is https://iankelley05.github.io/OneOnOneBattleship/. GitHub may take a few moments to build after a push. This requires existing Git credentials with repository push access. The app does not store a GitHub token.
+
+For a local viewer without Flask:
+
+```powershell
+python -m http.server 8001 --bind 127.0.0.1 --directory docs
+```
+
+Open http://127.0.0.1:8001. This viewer fetches its JSON from a relative URL, so it works under the GitHub Pages repository path too. It does not call Flask or provide game controls.
+
+Before every publication an exact allowlist check compares all public fields against recorded shots in a consistent database snapshot. Any additional field, unshot coordinate, or mismatched player total blocks publication. To check the current file locally:
+
+```powershell
+python check_public_state.py
+python -m unittest -v test_game.py test_public_export.py test_publishing.py
+```
+
+If the local state file is older than your game, regenerate it with Publish board before checking. Tests include unshot-coordinate injection, private-field rejection, offline recovery, database writes while Git is blocked, and verifying that a staged private file never reaches the publishing commit.
+
 A local Flask + SQLite game for RA one-on-ones. Requires Python 3.10 or newer.
 
 ## Launch on Windows
