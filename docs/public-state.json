@@ -227,6 +227,34 @@
           "created": "2026-09-26 16:44:18",
           "name": "Cade",
           "color": "#60a5fa"
+        },
+        {
+          "cell": 22,
+          "hit": 0,
+          "created": "2026-09-26 16:44:53",
+          "name": "Ian",
+          "color": "#818cf8"
+        },
+        {
+          "cell": 7,
+          "hit": 0,
+          "created": "2026-09-26 16:44:54",
+          "name": "Ian",
+          "color": "#818cf8"
+        },
+        {
+          "cell": 55,
+          "hit": 0,
+          "created": "2026-09-26 16:44:55",
+          "name": "Ian",
+          "color": "#818cf8"
+        },
+        {
+          "cell": 25,
+          "hit": 0,
+          "created": "2026-09-26 16:44:59",
+          "name": "Ian",
+          "color": "#818cf8"
         }
       ],
       "players": [
@@ -277,6 +305,12 @@
           "color": "#60a5fa",
           "shots": 4,
           "hits": 4
+        },
+        {
+          "name": "Ian",
+          "color": "#818cf8",
+          "shots": 4,
+          "hits": 0
         }
       ],
       "sunk_ships": [
