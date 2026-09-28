@@ -426,279 +426,43 @@
       "name": "North",
       "shots": [
         {
-          "cell": 9,
+          "cell": 34,
           "hit": 0,
-          "created": "2026-09-26 16:28:38",
-          "name": "Braden",
-          "color": "#60a5fa"
-        },
-        {
-          "cell": 36,
-          "hit": 0,
-          "created": "2026-09-26 16:28:39",
-          "name": "Braden",
-          "color": "#60a5fa"
-        },
-        {
-          "cell": 57,
-          "hit": 0,
-          "created": "2026-09-26 16:28:40",
-          "name": "Braden",
-          "color": "#60a5fa"
-        },
-        {
-          "cell": 54,
-          "hit": 1,
-          "created": "2026-09-26 16:28:41",
-          "name": "Braden",
-          "color": "#60a5fa"
-        },
-        {
-          "cell": 46,
-          "hit": 1,
-          "created": "2026-09-26 16:28:43",
-          "name": "Braden",
-          "color": "#60a5fa"
-        },
-        {
-          "cell": 33,
-          "hit": 0,
-          "created": "2026-09-26 16:28:50",
-          "name": "Dylan",
-          "color": "#f87171"
-        },
-        {
-          "cell": 7,
-          "hit": 0,
-          "created": "2026-09-26 16:28:51",
-          "name": "Dylan",
-          "color": "#f87171"
-        },
-        {
-          "cell": 0,
-          "hit": 1,
-          "created": "2026-09-26 16:28:52",
-          "name": "Dylan",
-          "color": "#f87171"
-        },
-        {
-          "cell": 8,
-          "hit": 1,
-          "created": "2026-09-26 16:28:52",
-          "name": "Dylan",
-          "color": "#f87171"
-        },
-        {
-          "cell": 16,
-          "hit": 1,
-          "created": "2026-09-26 16:28:53",
-          "name": "Dylan",
-          "color": "#f87171"
-        },
-        {
-          "cell": 25,
-          "hit": 0,
-          "created": "2026-09-26 16:29:00",
-          "name": "Will",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 24,
-          "hit": 1,
-          "created": "2026-09-26 16:29:00",
-          "name": "Will",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 50,
-          "hit": 1,
-          "created": "2026-09-26 16:29:03",
-          "name": "Will",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 49,
-          "hit": 1,
-          "created": "2026-09-26 16:29:05",
-          "name": "Will",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 48,
-          "hit": 0,
-          "created": "2026-09-26 16:29:05",
-          "name": "Will",
-          "color": "#fb923c"
-        },
-        {
-          "cell": 51,
-          "hit": 1,
-          "created": "2026-09-26 16:29:12",
-          "name": "Xander",
-          "color": "#facc15"
-        },
-        {
-          "cell": 21,
-          "hit": 0,
-          "created": "2026-09-26 16:29:14",
-          "name": "Xander",
-          "color": "#facc15"
-        },
-        {
-          "cell": 12,
-          "hit": 1,
-          "created": "2026-09-26 16:29:14",
-          "name": "Xander",
-          "color": "#facc15"
-        },
-        {
-          "cell": 11,
-          "hit": 0,
-          "created": "2026-09-26 16:29:18",
-          "name": "Xander",
-          "color": "#facc15"
-        },
-        {
-          "cell": 4,
-          "hit": 0,
-          "created": "2026-09-26 16:29:19",
-          "name": "Xander",
-          "color": "#facc15"
-        },
-        {
-          "cell": 13,
-          "hit": 1,
-          "created": "2026-09-26 16:29:25",
-          "name": "AJ",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 14,
-          "hit": 1,
-          "created": "2026-09-26 16:29:26",
-          "name": "AJ",
-          "color": "#a3e635"
-        },
-        {
-          "cell": 26,
-          "hit": 1,
-          "created": "2026-09-26 16:29:27",
-          "name": "AJ",
-          "color": "#a3e635"
+          "created": "2026-09-28 13:47:30",
+          "name": "Cade",
+          "color": "#a78b71"
         },
         {
           "cell": 27,
           "hit": 1,
-          "created": "2026-09-26 16:29:30",
-          "name": "AJ",
-          "color": "#a3e635"
+          "created": "2026-09-28 13:47:37",
+          "name": "Cade",
+          "color": "#a78b71"
         },
         {
-          "cell": 28,
+          "cell": 26,
           "hit": 1,
-          "created": "2026-09-26 16:29:31",
-          "name": "AJ",
-          "color": "#a3e635"
+          "created": "2026-09-28 13:47:49",
+          "name": "Cade",
+          "color": "#a78b71"
         },
         {
-          "cell": 60,
+          "cell": 25,
           "hit": 0,
-          "created": "2026-09-26 16:29:38",
-          "name": "Aarav",
-          "color": "#34d399"
-        },
-        {
-          "cell": 29,
-          "hit": 1,
-          "created": "2026-09-26 16:29:39",
-          "name": "Aarav",
-          "color": "#34d399"
-        },
-        {
-          "cell": 30,
-          "hit": 1,
-          "created": "2026-09-26 16:29:40",
-          "name": "Aarav",
-          "color": "#34d399"
+          "created": "2026-09-28 13:47:57",
+          "name": "Cade",
+          "color": "#a78b71"
         }
       ],
       "players": [
         {
-          "name": "Braden",
-          "color": "#60a5fa",
-          "shots": 5,
-          "hits": 2
-        },
-        {
-          "name": "Dylan",
-          "color": "#f87171",
-          "shots": 5,
-          "hits": 3
-        },
-        {
-          "name": "Will",
-          "color": "#fb923c",
-          "shots": 5,
-          "hits": 3
-        },
-        {
-          "name": "Xander",
-          "color": "#facc15",
-          "shots": 5,
-          "hits": 2
-        },
-        {
-          "name": "AJ",
-          "color": "#a3e635",
-          "shots": 5,
-          "hits": 5
-        },
-        {
-          "name": "Aarav",
-          "color": "#34d399",
-          "shots": 3,
+          "name": "Cade",
+          "color": "#a78b71",
+          "shots": 4,
           "hits": 2
         }
       ],
-      "sunk_ships": [
-        {
-          "cells": [
-            26,
-            27,
-            28,
-            29,
-            30
-          ]
-        },
-        {
-          "cells": [
-            0,
-            8,
-            16,
-            24
-          ]
-        },
-        {
-          "cells": [
-            12,
-            13,
-            14
-          ]
-        },
-        {
-          "cells": [
-            49,
-            50,
-            51
-          ]
-        },
-        {
-          "cells": [
-            46,
-            54
-          ]
-        }
-      ]
+      "sunk_ships": []
     }
   ]
 }
