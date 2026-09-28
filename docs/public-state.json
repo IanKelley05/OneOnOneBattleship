@@ -452,6 +452,34 @@
           "created": "2026-09-28 13:47:57",
           "name": "Cade",
           "color": "#a78b71"
+        },
+        {
+          "cell": 28,
+          "hit": 1,
+          "created": "2026-09-28 14:00:40",
+          "name": "Jack",
+          "color": "#f87171"
+        },
+        {
+          "cell": 29,
+          "hit": 1,
+          "created": "2026-09-28 14:00:47",
+          "name": "Jack",
+          "color": "#f87171"
+        },
+        {
+          "cell": 30,
+          "hit": 1,
+          "created": "2026-09-28 14:00:51",
+          "name": "Jack",
+          "color": "#f87171"
+        },
+        {
+          "cell": 52,
+          "hit": 0,
+          "created": "2026-09-28 14:01:25",
+          "name": "Jack",
+          "color": "#f87171"
         }
       ],
       "players": [
@@ -460,9 +488,25 @@
           "color": "#a78b71",
           "shots": 4,
           "hits": 2
+        },
+        {
+          "name": "Jack",
+          "color": "#f87171",
+          "shots": 4,
+          "hits": 3
         }
       ],
-      "sunk_ships": []
+      "sunk_ships": [
+        {
+          "cells": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        }
+      ]
     }
   ]
 }
